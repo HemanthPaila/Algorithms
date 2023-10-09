@@ -19,9 +19,6 @@ public class quick_sort {
         }
     }
 
-    // one way of partition
-    // use this way of partition.
-    // better way and easy to understand.
     public static int partition(int[] a, int low, int high) {
         int temp;
         int i = low - 1;
@@ -41,23 +38,6 @@ public class quick_sort {
         return i;
     }
 
-    // another way of partition
-    // public static int partition(int[] a,int low,int high)
-    // {
-    // int i=low-1;
-    // int pivot=high;
-    // for(int j=low;j<=high;j++)
-    // {
-    // if(a[j]<=a[pivot])
-    // {
-    // i++;
-    // int t=a[i];
-    // a[i]=a[j];
-    // a[j]=t;
-    // }
-    // }
-    // return i;
-    // }
     public static void sort(int[] a, int low, int high) {
         if (low < high) {
             int p1 = partition(a, low, high);
