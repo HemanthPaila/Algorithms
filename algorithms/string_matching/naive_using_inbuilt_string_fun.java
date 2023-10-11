@@ -2,7 +2,6 @@ package algorithms.string_matching;
 
 public class naive_using_inbuilt_string_fun {
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         int ans = 0;
         String str = "hemanth";
         int window = 3;
