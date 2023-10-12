@@ -5,9 +5,13 @@ package algorithms.string_matching;
 public class KMP {
 
     public static void main(String[] args) {
-        String str = "acccbaaacccbaac";
+        String str = "acccbaaacccbaaac"; // perfect test case to understand for building an LSP array
+        String str1 = "baaac";
         int[] lsp = new int[str.length()];
         lsp[0] = 0;
+        int q = 0;
+        int n = str.length();
+        int m = str1.length();
         for (int i = 1; i < str.length(); i++) {
             int j = lsp[i - 1];
             while (j > 0 && str.charAt(i) != str.charAt(j)) {
@@ -17,11 +21,22 @@ public class KMP {
                 j++;
             lsp[i] = j;
         }
-        for (int i = 0; i < lsp.length; i++) {
-            System.out.println(lsp[i]);
+        // For comparing the strings and moving the based on the lsp array
+        for (int i = 0; i < n; i++) {
+            while (q > 0 && str.charAt(i) != str1.charAt(q)) {
+                q = lsp[q];
+            }
+            if (str.charAt(i) == str1.charAt(q)) {
+                q = q + 1;
+            }
+            if (q == m) {
+                System.out.println(i - (m - 1) + 1);
+                q = lsp[q - 1];
+            }
         }
     }
 
 }
+// This algorithm run time complexity of O(m log m)+O(n log m)
 // Then comparing the string with the pattern and if an unmatch occurred then
 // make a move based on the longest prefix also suffix array(LSP).
