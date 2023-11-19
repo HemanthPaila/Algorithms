@@ -1,0 +1,6 @@
+Pre requesists for dynamic programming is recurssion.
+
+-> Dynamic programming problem can be solved in 3 different ways:
+1. top down approach (recurrsion + memorization).
+2. bottom up approach (tabulation).
+3. space optimization.
